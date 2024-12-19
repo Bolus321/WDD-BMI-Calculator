@@ -38,7 +38,7 @@ def main():
         print(f"Category: {bmi_category(bmi)}")
 
     except ValueError:
-        print("Invalid input! Please enter numerical values for weight & height greater than 1.")
+        print("Please enter numerical values for weight & height greater than 1.")
 
 if __name__ == "__main__":
     main()
