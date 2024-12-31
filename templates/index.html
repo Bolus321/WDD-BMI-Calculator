@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Stylesheets-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style/style.css') }}" />
+        <title>BMI Calculator</title>
+    </head>
+<body>
+
+    <div class="container">
+        <div class="form-section">
+            <h2>BMI Calculator</h2>
+            <form action="/bmi" method="POST">
+                <input type="text" name="weight" placeholder="Weight (kg)" required>
+                <input type="text" name="height" placeholder="Height (m)" required>
+                <button type="submit">Calculate BMI</button>
+            </form>
+
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+
+        </div>
+
+        {% if bmi %}
+        <div class="result-section">
+            <div class="bmi-image-section">
+                <img class="bmi-image" src="{{ url_for('static', filename='images/' + image) }}" 
+
+alt="{{ category }}">
+        </div>
+
+            <div class="bmi-meter-container">
+                <p>Your BMI: {{ bmi }}</p>
+                <p>Category: {{ category }}</p>
+                <div class="bmi-meter">
+                    <div class="bmi-meter-bar" style="width: {{ bmi_percentage }}%;">
+                        {{ bmi_percentage|round(1) }}%
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
