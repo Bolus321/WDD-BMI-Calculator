@@ -1,44 +1,57 @@
+from flask import Flask, render_template, request
 
+# App declaration
+app = Flask(__name__)
+
+# BMI formula & calculation 
 def calculate_bmi(weight, height):
-    """
-    BMI Formula = weight (kg) / (height (m) ** 2)
-    """
     return weight / (height ** 2)
 
-def bmi_category(bmi):
+def bmi_category_and_image(bmi):
     """
-    Categorization of BMI values.
+    Returns the BMI category and corresponding image file name.
     """
     if bmi < 18.5:
-        return "Underweight"
+        return "Underweight", "underweight.jpg"
     elif 18.5 <= bmi < 24.9:
-        return "Normal weight"
+        return "Normal weight", "normal.jpg"
     elif 25 <= bmi < 29.9:
-        return "Overweight"
+        return "Overweight", "overweight.jpg"
     else:
-        return "Obesity"
+        return "Obesity", "obesity.jpg"
 
+# Start an app route
+@app.route("/")
 def main():
-    print("Welcome to the WWD BMI Calculator!")
-    try:
-        # Get user input for weight and height
-        weight = float(input("Enter your weight in kilograms (kg): "))
-        height = float(input("Enter your height in meters (m): "))
+    return render_template("index.html")
 
-        # Validate inputs
-        if weight <= 0 or height <= 0:
-            print("Please enter appropriate values. Weight & height must be greater than 1.")
-            return
 
-        # Calculate BMI
-        bmi = calculate_bmi(weight, height)
+# Route for BMI calculation result
+@app.route("/bmi", methods=["POST"])
+def calculate():
+        try:
+            weight = float(request.form.get("weight"))
+            height = float(request.form.get("height"))
 
-        # Display results
-        print(f"\nYour BMI is: {bmi:.2f}")
-        print(f"Category: {bmi_category(bmi)}")
-
-    except ValueError:
-        print("Please enter numerical values for weight & height greater than 1.")
+            if weight > 1 or height > 1:
+                bmi = calculate_bmi(weight, height)
+                category, image = bmi_category_and_image(bmi)
+                
+                return render_template(
+                "index.html", 
+                bmi=f"{bmi:.2f}", 
+                category=category, 
+                image=image, 
+                bmi_percentage=min(bmi / 40 * 100, 100)  # Scale BMI to percentage for meter
+            )
+               
+            else:
+                error = "Weight and height must be positive numbers."
+                return render_template("index.html", error=error)
+          
+        except ValueError:
+            error = "Weight and height must be positive numbers."
+            return render_template("index.html", error=error)
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)
