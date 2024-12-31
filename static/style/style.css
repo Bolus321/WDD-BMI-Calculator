@@ -1,0 +1,76 @@
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 800px;
+        }
+        .form-section, .result-section {
+            flex: 1;
+            padding: 10px;
+        }
+        .form-section {
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .result-section {
+            display: flex;
+            justify-content: space-between;
+        }
+        .bmi-image {
+            width: 200px;
+            height: auto;
+        }
+        .bmi-meter-container {
+            text-align: center;
+        }
+        .bmi-meter {
+            width: 200px;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .bmi-meter-bar {
+            height: 100%;
+            background: #28a745;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+            border-radius: 10px;
+        }
+    </style>
