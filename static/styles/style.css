@@ -1,0 +1,106 @@
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .upper-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .result-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .result-image {
+            width: 150px;
+            height: auto;
+            margin: 0 20px;
+        }
+
+        .bmi-progress {
+            margin: 20px 0;
+            width: 80%;
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+		
+		.progress-bar {
+            height: 30px;
+            background-color: #007bff;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .lower-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .bmi-table {
+            width: 40%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .bmi-table th, .bmi-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .category-gallery {
+            display: flex;
+            overflow-x: scroll;
+            padding: 10px;
+        }
+
+        .category-gallery img {
+            margin-right: 10px;
+            width: 100px;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Form section */
+        .form-section {
+            margin: 20px 0;
+        }
+
+        .form-section input, .form-section button {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-section button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-section button:hover {
+            background-color: #0056b3;
+        }
+    </style>

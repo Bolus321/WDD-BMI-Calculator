@@ -1,49 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	<!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Stylesheets-->
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style/style.css') }}" />
-        <title>BMI Calculator</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}" />
+    <title>BMI Calculator</title>
+
+</head>
 <body>
-
     <div class="container">
-        <div class="form-section">
-            <h2>BMI Calculator</h2>
-            <form action="/bmi" method="POST">
-                <input type="text" name="weight" placeholder="Weight (kg)" required>
-                <input type="text" name="height" placeholder="Height (m)" required>
-                <button type="submit">Calculate BMI</button>
-            </form>
 
-            {% if error %}
-            <p class="error">{{ error }}</p>
-            {% endif %}
+        <!-- Upper Section -->
+        <div class="upper-section">
+            <h1>BMI Calculator</h1>
+            <div class="form-section">
+                <form action="/bmi" method="POST">
+                    <input type="number" name="height" placeholder="Height (cm)" required>
+                    <input type="number" name="weight" placeholder="Weight (kg)" required>
+                    <button type="submit">Calculate</button>
+                </form>
+            </div>
 
-        </div>
+            {% if bmi %}
 
-        {% if bmi %}
-        <div class="result-section">
-            <div class="bmi-image-section">
-                <img class="bmi-image" src="{{ url_for('static', filename='images/' + image) }}" 
-
-alt="{{ category }}">
-        </div>
-
-            <div class="bmi-meter-container">
-                <p>Your BMI: {{ bmi }}</p>
-                <p>Category: {{ category }}</p>
-                <div class="bmi-meter">
-                    <div class="bmi-meter-bar" style="width: {{ bmi_percentage }}%;">
-                        {{ bmi_percentage|round(1) }}%
-                    </div>
+            <div class="result-section">
+                <div>
+                    <h2>Your BMI is: {{ bmi }}</h2>
+                    <h3>Your Category is: {{ category }}</h3>
                 </div>
             </div>
+			
+			  <!-- Progress Bar -->
+            {% if progress_percentage %}
+            <div class="bmi-progress">
+                <div class="progress-bar" style="width: {{ progress_percentage }}%;">
+                    {{ progress_percentage }}%
+                </div>
+            </div>
+
+            {% endif %}
+            {% endif %}
         </div>
-        {% endif %}
+
+        <!-- Lower Section -->
+        <div class="lower-section">
+
+            <!-- BMI Table -->
+            <table class="bmi-table">
+
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>BMI Range</th>
+                    </tr>
+                </thead>
+
+
+
+                <tbody>
+                    <tr>
+                        <td>Underweight</td>
+                        <td>Below 18.5</td>
+                    </tr>
+
+                     <tr>
+                        <td>Normal weight</td>
+                        <td>Between 18.5 to 24.9</td>
+                    </tr>
+
+                     <tr>
+                        <td>Overweight</td>
+                        <td>Between 25 to 29.9</td>
+                    </tr>
+					
+					 <tr>
+                        <td>Obesity</td>
+                        <td>30 and above</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- Image Gallery -->
+            <div class="category-gallery">
+                <img src="https://i.postimg.cc/1tSwj9jm/underweight.jpg" alt="Underweight">
+                <img src="https://i.postimg.cc/d1GnhHz1/normal.jpg" alt="Normal">
+                <img src="https://i.postimg.cc/P5ZLsgZP/overweight.jpg" alt="Overweight">
+                <img src="https://i.postimg.cc/D08ZCHnf/obesity.jpg" alt="Obesity">
+
+            </div>
+
+        </div>
+
     </div>
+
+    <hr>
+
 </body>
 </html>
+            
