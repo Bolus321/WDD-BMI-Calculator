@@ -22,6 +22,7 @@ def category(cal_bmi):
     else:
         return "Obesity"
 
+
 # Start an app route
 @app.route("/")
 def main():
@@ -43,7 +44,7 @@ def calculate():
                 return render_template("index.html", error=error)
 
             bmi = cal_bmi(weight, height)
-
+    
 
             return render_template(
                 "index.html",

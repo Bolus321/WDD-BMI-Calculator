@@ -8,11 +8,11 @@
         }
 
 
-        .header {
+	.header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #007bff;
+	    background-color: #007bff;
             color: white;
             padding: 10px 20px;
         }
@@ -36,7 +36,14 @@
         .header nav a:hover {
             text-decoration: underline;
         }
-		
+
+
+
+
+
+
+
+
         .container {
             width: 90%;
             margin: 20px auto;
@@ -71,7 +78,7 @@
             border-radius: 20px;
             overflow: hidden;
         }
-		
+
         .progress-bar {
             height: 30px;
             background-color: #007bff;
@@ -103,7 +110,7 @@
             overflow-x: scroll;
             padding: 10px;
         }
-		
+
         .category-gallery img {
             margin-right: 10px;
             width: 100px;
@@ -134,7 +141,7 @@
         .form-section button:hover {
             background-color: #0056b3;
         }
-		
+
         /* Footer section */
         .footer {
                 display: absolute;
