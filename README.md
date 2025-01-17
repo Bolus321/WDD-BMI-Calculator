@@ -23,7 +23,7 @@ This project was developed as a Webstack - Portfolio Project for the ALX Softwar
 4. Open your browser and visit http://127.0.0.1:5000/ to use and interact with the application.
 
 ## Screenshot
-![GCL Body Mass Index (BMI) Calculator](URL "[![Screenshot-2025-01-17-174934.png](https://i.postimg.cc/mktKWThn/Screenshot-2025-01-17-174934.png)](https://postimg.cc/CnpcjTGC)")
+<img src="https://i.postimg.cc/mktKWThn/Screenshot-2025-01-17-174934.png"/>
 
 ## Contact
     Nnamdi Ogbolu (ALX_SWE #2025) - nnamdiogbolu321@gmail.com
