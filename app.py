@@ -1,44 +1,63 @@
+from flask import Flask, render_template, request, redirect, url_for
 
-def calculate_bmi(weight, height):
-    """
-    BMI Formula = weight (kg) / (height (m) ** 2)
-    """
-    return weight / (height ** 2)
+app = Flask(__name__)
 
-def bmi_category(bmi):
+# Declare the app
+app = Flask(__name__)
+
+
+def cal_bmi(weight, height):
+    return weight / ((height /100) ** 2)
+
+def category(cal_bmi):
     """
-    Categorization of BMI values.
+    Returns the BMI category
     """
-    if bmi < 18.5:
+    if cal_bmi < 18.5:
         return "Underweight"
-    elif 18.5 <= bmi < 24.9:
+    elif 18.5 <= cal_bmi < 24.9:
         return "Normal weight"
-    elif 25 <= bmi < 29.9:
+    elif 25 <= cal_bmi < 29.9:
         return "Overweight"
     else:
         return "Obesity"
 
+# Start an app route
+@app.route("/")
 def main():
-    print("Welcome to the WWD BMI Calculator!")
-    try:
-        # Get user input for weight and height
-        weight = float(input("Enter your weight in kilograms (kg): "))
-        height = float(input("Enter your height in meters (m): "))
+    return render_template("index.html")
 
-        # Validate inputs
-        if weight <= 0 or height <= 0:
-            print("Please enter appropriate values. Weight & height must be greater than 1.")
-            return
+# Route for BMI calculation result
+@app.route("/bmi", methods=["GET", "POST"])
 
-        # Calculate BMI
-        bmi = calculate_bmi(weight, height)
 
-        # Display results
-        print(f"\nYour BMI is: {bmi:.2f}")
-        print(f"Category: {bmi_category(bmi)}")
+def calculate():
+    if request.method == "POST":
 
-    except ValueError:
-        print("Please enter numerical values for weight & height greater than 1.")
+        try:
+            weight = float(request.form.get("weight"))
+            height = float(request.form.get("height"))
+
+            if weight <= 0 or height <= 0:
+                error = "Weight and height must be positive values."
+                return render_template("index.html", error=error)
+
+            bmi = cal_bmi(weight, height)
+
+
+            return render_template(
+                "index.html",
+                bmi=f"{bmi:.2f}",
+                category=category(bmi),
+                progress_percentage=min(bmi / 40 * 100, 100)  # Scale BMI to percentage for meter
+            )
+
+        except ValueError:
+            error = "Invalid input. Please enter numeric values for weight and height."
+            return render_template("index.html", error=error)
+
+    return render_template("index.html")
+
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)
