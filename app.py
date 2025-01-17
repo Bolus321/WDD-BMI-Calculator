@@ -28,6 +28,37 @@ def category(cal_bmi):
 def main():
     return render_template("index.html")
 
+
+@app.route("/")
+def home():
+    return render_template("home.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/resources")
+def resources():
+    return render_template("resources.html")
+
+@app.route("/diet-ideas")
+def diet_ideas():
+    return render_template("diet_ideas.html")
+
+@app.route("/calendar")
+def calendar():
+    return render_template("calendar.html")
+
+@app.route("/faqs")
+def faqs():
+    return render_template("faqs.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+
+
 # Route for BMI calculation result
 @app.route("/bmi", methods=["GET", "POST"])
 
