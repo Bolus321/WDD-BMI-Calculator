@@ -11,20 +11,20 @@ This project was developed as a Webstack - Portfolio Project for the ALX Softwar
 
 
 ## Technologies Used
-Python
-Flask
-HTML
-CSS
+- Python
+- Flask
+- HTML
+- CSS
 
 ## Usage
-1. Fork or clone the project. https://github.com/Bolus321/WDD-BMI-Calculator.git
+1. Fork or clone the [project repository.](https://github.com/Bolus321/WDD-BMI-Calculator.git)
 2. Navigate to the project repository on your local machine's terminal.
 3. Run this app using the command: python app.py.
-4. Open your browser  and visit http://127.0.0.1:5000/ to use and interact with the application.
+4. Open your browser and visit http://127.0.0.1:5000/ to use and interact with the application.
 
 ## Screenshot
-![GCL Body Mass Index (BMI) Calculator](URL "https://i.postimg.cc/mktKWThn/Screenshot-2025-01-17-174934.png")
+![GCL Body Mass Index (BMI) Calculator](URL "[![Screenshot-2025-01-17-174934.png](https://i.postimg.cc/mktKWThn/Screenshot-2025-01-17-174934.png)](https://postimg.cc/CnpcjTGC)")
 
 ## Contact
-    Nnamdi Ogbolu - nnamdiogbolu321@gmail.com
+    Nnamdi Ogbolu (ALX_SWE #2025) - nnamdiogbolu321@gmail.com
                                                                           
